@@ -1,10 +1,19 @@
 from flask import Flask
-import random
+
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return str(random.random())
+    return 'welcome'
 
-app.run(port = 5000, debug=True)
+@app.route('/create/')
+def create():
+    return 'Create'
+
+@app.route('/read/<id>/')
+def read(id):
+    print(id)
+    return 'Read' +id
+
+app.run(debug=True)
