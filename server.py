@@ -5,7 +5,20 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return 'welcome'
+    return '''<!doctype html>
+    <html>
+        <body>
+            <h1><a href = "/">WEB</h1>
+            <ol>
+                <li><a href = "/read/1/">html</a></li>
+                <li><a href = "/read/2/">css</a></li>
+                <li><a href = "/read/2/">js</a></li>
+            </ol>
+            <h2>Welcome</h2>
+            Hello, Web
+        </body>
+    </html>    
+    '''
 
 @app.route('/create/')
 def create():
