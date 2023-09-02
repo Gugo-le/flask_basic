@@ -1,1 +1,25 @@
-0.11212
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Music Player</title>
+</head>
+
+<body>
+    {% for song in songs %}
+    <div>
+        <h2>{{ song.title }}</h2>
+        <p>{{ song.artist }} - {{ song.album }}</p>
+
+        <!-- 웹 서버가 음악 파일에 접근할 수 있도록 적절한 경로를 설정해야 합니다 -->
+        <!-- 이 예제에서는 라즈베리 파이 내부의 경로가 아닌 웹 서버가 접근 가능한 URL 형태로 제공되어야 합니다 -->
+        <audio controls>
+        <source src="{{ url_for('static', filename=song.file_path) }}" type="audio/wav">
+        Your browser does not support the audio element.
+      </audio>
+
+    </div>
+    {% endfor %}
+</body>
+
+</html>
